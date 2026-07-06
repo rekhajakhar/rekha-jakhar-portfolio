@@ -6,7 +6,7 @@ export const profile = {
   email: "rekhajakhar10@gmail.com",
   phone: "+91 8884783400",
   linkedin: "https://linkedin.com/in/rekha-jakhar-624b694b",
-  resumeUrl: "/resume.pdf",
+  resumeUrl: "/rekha_jakhar_resume.pdf",
   resumeFileName: "rekha_jakhar_resume.pdf",
   heroHook:
     "5+ years at Intuit shipping React/Redux Toolkit features for QuickBooks · 12 years total in engineering · IIT Delhi M.Tech",

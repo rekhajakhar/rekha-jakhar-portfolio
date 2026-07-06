@@ -33,10 +33,13 @@ export function Contact() {
             <LinkedinIcon size={16} />
             LinkedIn
           </a>
-          <span className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 font-medium text-muted">
+          <a
+            href={`tel:${profile.phone.replace(/\s+/g, "")}`}
+            className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 font-medium transition-colors hover:bg-muted-background"
+          >
             <Phone size={16} />
             {profile.phone}
-          </span>
+          </a>
         </div>
       </Reveal>
     </section>

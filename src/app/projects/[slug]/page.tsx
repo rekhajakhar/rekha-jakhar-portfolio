@@ -1,21 +1,23 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import type { Metadata } from "next";
-import { projects } from "@/data/projects";
+import { workProjects, personalProjects } from "@/data/projects";
 import { Reveal } from "@/components/Reveal";
+
+const allProjects = [...workProjects, ...personalProjects];
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
 export function generateStaticParams() {
-  return projects.map((project) => ({ slug: project.slug }));
+  return allProjects.map((project) => ({ slug: project.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const project = projects.find((p) => p.slug === slug);
+  const project = allProjects.find((p) => p.slug === slug);
   if (!project) return {};
   return {
     title: `${project.name} — Rekha Jakhar`,
@@ -25,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ProjectPage({ params }: Props) {
   const { slug } = await params;
-  const project = projects.find((p) => p.slug === slug);
+  const project = allProjects.find((p) => p.slug === slug);
 
   if (!project) notFound();
 
@@ -60,6 +62,18 @@ export default async function ProjectPage({ params }: Props) {
             </span>
           ))}
         </div>
+
+        {project.liveUrl ? (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-6 inline-flex items-center gap-2 rounded-full border border-accent/40 px-4 py-2 text-sm font-medium text-accent transition-colors hover:bg-accent/10"
+          >
+            View live demo
+            <ArrowUpRight size={16} />
+          </a>
+        ) : null}
       </Reveal>
 
       <Reveal delay={0.05} className="mt-10">

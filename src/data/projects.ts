@@ -9,9 +9,10 @@ export type Project = {
   problem: string;
   approach: string[];
   impact: string[];
+  liveUrl?: string;
 };
 
-export const projects: Project[] = [
+export const workProjects: Project[] = [
   {
     slug: "delta-migration",
     name: "Delta Migration",
@@ -76,5 +77,30 @@ export const projects: Project[] = [
       "Reduced bundle size and improved time-to-interactive through lazy loading.",
       "Recognised with Spotlight Awards for delivery excellence across IES DFY, Readiness Agent, and Performance Improvement programs.",
     ],
+  },
+];
+
+export const personalProjects: Project[] = [
+  {
+    slug: "reusable-components-library",
+    name: "Reusable Components Library",
+    role: "Frontend Developer",
+    timeframe: "Personal Project · 2026",
+    stack: ["React", "TypeScript", "Storybook", "Tailwind CSS", "Vercel"],
+    headlineMetric: "Accessible UI building blocks documented and shared",
+    summary:
+      "A reusable component library with polished, accessible UI primitives, documented in Storybook and deployed for easy browsing.",
+    problem:
+      "Rebuilding common UI elements across projects often led to inconsistent styling, duplicated effort, and slower implementation cycles.",
+    approach: [
+      "Built a set of reusable components with a consistent API, accessible defaults, and flexible styling.",
+      "Documented each component in Storybook so it could be previewed and tested interactively.",
+      "Published the documentation site on Vercel to make the library easy to share and review.",
+    ],
+    impact: [
+      "Created a reusable foundation for faster UI development across future projects.",
+      "Made the component system easier to evaluate through live documentation and examples.",
+    ],
+    liveUrl: "https://reusable-components-ivory.vercel.app/?path=/docs/components-button--docs",
   },
 ];
